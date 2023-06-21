@@ -28,6 +28,20 @@
   color: #61dafb;
 }
 
+.gifList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+  color: rgb(0, 179, 255);
+}
+
+.gifItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
