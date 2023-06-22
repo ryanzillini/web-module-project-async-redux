@@ -5,10 +5,13 @@ const Gif = (props) => {
 
   return (
     <div className="gifItem">
-      <h3>gif title</h3>
-      <p>gif description</p>
-      <p>gif author</p>
-      <img src=""></img>
+      <h3>{gif.title}</h3>
+      <p>{gif.username}</p>
+      <p>{gif.author}</p>
+      <img src={gif.images.original.url}></img>
+      <a href={gif.url}>Check It Out On Griphy</a>
     </div>
   );
 };
+
+export default Gif;

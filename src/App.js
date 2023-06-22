@@ -1,24 +1,28 @@
 import React from "react";
 import "./App.css";
+import { getGifs } from "./actions";
+import GifForm from "./components/GifForm";
+import GifList from "./components/GifList";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
+  const { loading, error, getGifs } = props;
+
   return (
     <div className="App">
       <h1>Async Redux Project</h1>
-      <form>
-        <input />
-        <button>Search</button>
-      </form>
-      <div className="gifList">
-        <div className="gifItem">
-          <h3>gif title</h3>
-          <p>gif description</p>
-          <p>gif author</p>
-          <img src=""></img>
-        </div>
-      </div>
+      <GifForm />
+      {error && <h3>{error}</h3>}
+      {loading ? <h3>We are loading</h3> : <GifList />}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    loading: state.loading,
+    error: state.error,
+  };
+};
+
+export default connect(mapStateToProps, { getGifs })(App);
